@@ -1,9 +1,6 @@
-import { useState } from "react";
-import { boardDefault } from "../utils/Words";
 import Letter from "./Letter";
 
 function Board() {
-  const [board, setBoard] = useState(boardDefault);
   return (
     <div className="board">
       <div className="row">
