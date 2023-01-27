@@ -13,13 +13,57 @@ function App() {
     attempt: 0,
     letterPosition: 0,
   });
+
+  const onEnter = (keyValue) => {
+    if (currentAttempt.letterPosition !== 5) return;
+
+    setCurrentAttempt({
+      attempt: currentAttempt.attempt + 1,
+      letterPosition: 0,
+    });
+  };
+
+  const onDelete = () => {
+    if (currentAttempt.letterPosition === 0) return;
+
+    const newBoard = [...board];
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition - 1] = "";
+
+    setBoard(newBoard);
+    setCurrentAttempt({
+      ...currentAttempt,
+      letterPosition: currentAttempt.letterPosition - 1,
+    });
+  };
+
+  const onSelectLetter = (keyValue) => {
+    if (currentAttempt.letterPosition > 4) return;
+
+    const newBoard = [...board];
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition] = keyValue;
+
+    setBoard(newBoard);
+    setCurrentAttempt({
+      ...currentAttempt,
+      letterPosition: currentAttempt.letterPosition + 1,
+    });
+  };
+
   return (
     <div className="App">
       <nav>
         <h1>Palavrinha</h1>
       </nav>
       <AppContext.Provider
-        value={{ board, setBoard, currentAttempt, setCurrentAttempt }}
+        value={{
+          board,
+          setBoard,
+          currentAttempt,
+          setCurrentAttempt,
+          onEnter,
+          onDelete,
+          onSelectLetter,
+        }}
       >
         <div className="game">
           <Board />
