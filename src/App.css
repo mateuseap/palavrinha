@@ -1,15 +1,12 @@
 .App {
   text-align: center;
-  background-color: #121212;
-  width: 100vw;
-  height: 100vh;
-  /* display: flex; */
   color: white;
 }
 
 body {
   padding: 0%;
   margin: 0;
+  background-color: #121212;
 }
 
 nav {
@@ -28,8 +25,6 @@ nav h1 {
   font-size: 45px;
 }
 .game {
-  width: 100vw;
-  height: calc(100vh - 170px);
   display: flex;
   align-items: center;
   padding-top: 50px;
