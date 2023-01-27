@@ -2,7 +2,7 @@ import "./App.css";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import { useState } from "react";
-import { boardDefault } from "../utils/Words";
+import { boardDefault } from "./utils/Words";
 import { createContext } from "react";
 
 export const AppContext = createContext();
