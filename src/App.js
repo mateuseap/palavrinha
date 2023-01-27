@@ -10,15 +10,15 @@ export const AppContext = createContext();
 function App() {
   const [board, setBoard] = useState(boardDefault);
   const [currentAttempt, setCurrentAttempt] = useState({
-    attempt: 0,
+    attemptValue: 0,
     letterPosition: 0,
   });
 
-  const onEnter = (keyValue) => {
+  const onEnter = () => {
     if (currentAttempt.letterPosition !== 5) return;
 
     setCurrentAttempt({
-      attempt: currentAttempt.attempt + 1,
+      attemptValue: currentAttempt.attemptValue + 1,
       letterPosition: 0,
     });
   };
@@ -27,7 +27,8 @@ function App() {
     if (currentAttempt.letterPosition === 0) return;
 
     const newBoard = [...board];
-    newBoard[currentAttempt.attempt][currentAttempt.letterPosition - 1] = "";
+    newBoard[currentAttempt.attemptValue][currentAttempt.letterPosition - 1] =
+      "";
 
     setBoard(newBoard);
     setCurrentAttempt({
@@ -40,7 +41,8 @@ function App() {
     if (currentAttempt.letterPosition > 4) return;
 
     const newBoard = [...board];
-    newBoard[currentAttempt.attempt][currentAttempt.letterPosition] = keyValue;
+    newBoard[currentAttempt.attemptValue][currentAttempt.letterPosition] =
+      keyValue;
 
     setBoard(newBoard);
     setCurrentAttempt({
