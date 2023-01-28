@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/palavrinha/static/css/main.37714a33.css",
+    "main.js": "/palavrinha/static/js/main.6a80e3de.js",
+    "static/js/787.4ffecc2e.chunk.js": "/palavrinha/static/js/787.4ffecc2e.chunk.js",
+    "static/media/all-words.txt": "/palavrinha/static/media/all-words.fcf0ad6709f1e5ba962d.txt",
+    "index.html": "/palavrinha/index.html",
+    "main.37714a33.css.map": "/palavrinha/static/css/main.37714a33.css.map",
+    "main.6a80e3de.js.map": "/palavrinha/static/js/main.6a80e3de.js.map",
+    "787.4ffecc2e.chunk.js.map": "/palavrinha/static/js/787.4ffecc2e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.37714a33.css",
+    "static/js/main.6a80e3de.js"
+  ]
+}
