@@ -1,8 +1,8 @@
 import "./App.css";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
-import { useState } from "react";
-import { boardDefault } from "./utils/Words";
+import { useEffect, useState } from "react";
+import { boardDefault, generateWordSet } from "./utils/Words";
 import { createContext } from "react";
 
 export const AppContext = createContext();
@@ -13,6 +13,15 @@ function App() {
     attemptValue: 0,
     letterPosition: 0,
   });
+  const [wordSet, setWordSet] = useState(new Set());
+
+  const correctWord = "TESTE";
+
+  useEffect(() => {
+    generateWordSet().then((words) => {
+      setWordSet(words.wordSet);
+    });
+  }, []);
 
   const onEnter = () => {
     if (currentAttempt.letterPosition !== 5) return;
@@ -65,6 +74,7 @@ function App() {
           onEnter,
           onDelete,
           onSelectLetter,
+          correctWord,
         }}
       >
         <div className="game">
