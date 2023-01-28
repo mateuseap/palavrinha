@@ -1,6 +1,7 @@
 import "./App.css";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
+import GameOver from "./components/GameOver";
 import { useEffect, useState } from "react";
 import { boardDefault, generateWordSet } from "./utils/Words";
 import { createContext } from "react";
@@ -47,7 +48,12 @@ function App() {
     }
 
     if (currentWord === correctWord) {
-      alert("Parabéns, você acertou a palavra!");
+      setGameOver({ gameOver: true, guessedWord: true });
+      return;
+    }
+
+    if (currentAttempt.attemptValue === 5) {
+      setGameOver({ gameOver: true, guessedWord: false });
     }
   };
 
@@ -102,7 +108,7 @@ function App() {
       >
         <div className="game">
           <Board />
-          <Keyboard />
+          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
     </div>
