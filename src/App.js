@@ -26,10 +26,24 @@ function App() {
   const onEnter = () => {
     if (currentAttempt.letterPosition !== 5) return;
 
-    setCurrentAttempt({
-      attemptValue: currentAttempt.attemptValue + 1,
-      letterPosition: 0,
-    });
+    let currentWord = "";
+
+    for (let i = 0; i < 5; i++) {
+      currentWord += board[currentAttempt.attemptValue][i];
+    }
+
+    if (wordSet.has(currentWord.toLowerCase())) {
+      setCurrentAttempt({
+        attemptValue: currentAttempt.attemptValue + 1,
+        letterPosition: 0,
+      });
+    } else {
+      alert("Palava inválida!");
+    }
+
+    if (currentWord === correctWord) {
+      alert("Parabéns, você acertou a palavra!");
+    }
   };
 
   const onDelete = () => {
