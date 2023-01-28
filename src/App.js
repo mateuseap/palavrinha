@@ -14,6 +14,7 @@ function App() {
     letterPosition: 0,
   });
   const [wordSet, setWordSet] = useState(new Set());
+  const [disabledLetters, setDisabledLetters] = useState([]);
 
   const correctWord = "TESTE";
 
@@ -89,6 +90,8 @@ function App() {
           onDelete,
           onSelectLetter,
           correctWord,
+          disabledLetters,
+          setDisabledLetters,
         }}
       >
         <div className="game">

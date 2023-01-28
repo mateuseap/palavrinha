@@ -3,7 +3,7 @@ import { useCallback, useEffect, useContext } from "react";
 import { AppContext } from "../App";
 
 function Keyboard() {
-  const { onEnter, onDelete, onSelectLetter } = useContext(AppContext);
+  const { onEnter, onDelete, onSelectLetter, disabledLetters } = useContext(AppContext);
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
@@ -46,18 +46,18 @@ function Keyboard() {
     <div className="keyboard" onKeyDown={handleKeyboard}>
       <div className="line1">
         {keys1.map((key) => {
-          return <Key keyValue={key} />;
+          return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
         })}
       </div>
       <div className="line2">
         {keys2.map((key) => {
-          return <Key keyValue={key} />;
+          return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
         })}
       </div>
       <div className="line3">
         <Key keyValue={"ENTER"} bigKey={true} />
         {keys3.map((key) => {
-          return <Key keyValue={key} />;
+          return <Key keyValue={key} disabled={disabledLetters.includes(key)} />;
         })}
         <Key keyValue={"DELETE"} bigKey={true} />
       </div>
